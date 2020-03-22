@@ -7,10 +7,12 @@ import json
 
 youtube_url = "https://www.youtube.com/watch?v=1rabwjd9jyY"
 video_id = "1"
+local = False
+headless = True
 
 def getLinks(id, video_url):
 
-    driver = browser.createBrowser(True)
+    driver = browser.createBrowser(headless, local)
 
     JSON = json.dumps({'id': id, 'abunda_links': "error"})
 

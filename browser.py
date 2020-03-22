@@ -1,13 +1,19 @@
 from selenium import webdriver 
+import os
 
 
-def createBrowser(headless):
 
-    GOOGLE_CHROME_BIN = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-    CHROME_DRIVER = "/Users/nolan/Python/vibn/chromedriver"
+def createBrowser(headless, local):
+
+    bin = os.environ.get("GOOGLE_CHROME_BIN")
+    path = os.environ.get("CHROMEDRIVER_PATH")
+
+    if local:
+        bin = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+        path = "/Users/nolan/Python/vibn/chromedriver"
 
     option = webdriver.ChromeOptions()
-    option.binary_location = GOOGLE_CHROME_BIN
+    option.binary_location = bin
     option.add_argument('--log-level=3')
     option.add_argument("--incognito")
     option.add_argument("--mute-audio")
@@ -21,6 +27,6 @@ def createBrowser(headless):
     if headless:
         option.add_argument("--headless")
 
-    browser = webdriver.Chrome(executable_path=CHROME_DRIVER, options=option)
+    browser = webdriver.Chrome(executable_path=path, options=option)
 
     return browser
