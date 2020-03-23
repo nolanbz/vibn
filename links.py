@@ -1,5 +1,5 @@
 import time
-import click
+import buddon
 
 def filter(driver, sus_links):
 
@@ -16,7 +16,7 @@ def filter(driver, sus_links):
             check = any(x in link.text for x in black_list)
             if not check:
 
-                click.clickLink(driver,link)
+                buddon.click(driver,link)
             
                 handle = driver.window_handles[-1]
                 driver.switch_to.window(handle)

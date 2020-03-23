@@ -4,19 +4,15 @@ import time
 import description
 import abunda
 import json
-
-youtube_url = "https://www.youtube.com/watch?v=1rabwjd9jyY"
-video_id = "1"
-local = False
-headless = True
+import setup
 
 def getLinks(id, video_url):
 
-    driver = browser.createBrowser(headless, local)
+    driver = browser.createBrowser(setup.headless(), setup.local())
 
     JSON = json.dumps({'id': id, 'abunda_links': "error"})
 
-    if video.get(driver, youtube_url):
+    if video.get(driver, video_url):
 
         amazon_links = description.getLinks(driver)
         abunda_links = abunda.convertLinks(driver, amazon_links)
@@ -35,5 +31,3 @@ def getLinks(id, video_url):
         return JSON
     
     driver.quit()
-
-getLinks(video_id, youtube_url)

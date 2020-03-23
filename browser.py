@@ -1,6 +1,6 @@
 from selenium import webdriver 
 import os
-
+import setup
 
 
 def createBrowser(headless, local):
@@ -24,7 +24,7 @@ def createBrowser(headless, local):
     option.add_argument("--disable-application-cache")
     
     
-    if headless:
+    if setup.local():
         option.add_argument("--headless")
 
     browser = webdriver.Chrome(executable_path=path, options=option)
