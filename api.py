@@ -11,6 +11,10 @@ app = Flask(__name__)
 api = Api(app)
 auth = HTTPBasicAuth()
 
+@app.route("/")
+def home():
+    return "Abunda!"
+
 
 class Video(Resource):
 
@@ -45,7 +49,7 @@ class Video(Resource):
    
 api.add_resource(Video, "/")
 
-app.run(debug=False) 
+app.run(debug=True) 
 
 
 
