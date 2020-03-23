@@ -1,6 +1,6 @@
 
 def local():
-    return False
+    return True
 
 def headless():
     return True
