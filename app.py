@@ -19,6 +19,19 @@ def post_something():
 
     return payload
 
+@app.route('/doi/', methods=['POST'])
+def doi_something():
+    parser = reqparse.RequestParser()
+    parser.add_argument("id")
+    parser.add_argument("link")
+    args = parser.parse_args()
+    id = args['id']
+    link = args['link']
+    payload = (id, link), 200
+    print("DUNCE CAPPIN")
+
+    return payload
+
 # A welcome message to test our server
 @app.route('/')
 def index():
