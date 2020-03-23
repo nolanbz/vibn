@@ -16,6 +16,7 @@ def createBrowser(headless, local):
     option.binary_location = bin
     option.add_argument('--disable-gpu')
     option.add_argument('--no-sandbox')
+    option.add_argument("--disable-dev-shm-usage")
     option.add_argument('--window-size=800,600')
     option.add_argument('--log-level=3')
     option.add_argument("--incognito")
@@ -23,6 +24,7 @@ def createBrowser(headless, local):
     option.add_argument("--disable-popup-blocking")
     option.add_argument("--disable-extensions")
     option.add_argument("--disable-application-cache")
+    
     
     if setup.local():
         option.add_argument("--headless")
