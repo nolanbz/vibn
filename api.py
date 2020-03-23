@@ -49,7 +49,7 @@ class Video(Resource):
    
 api.add_resource(Video, "/")
 
-app.run(debug=True) 
+app.run(debug=False) 
 
 
 
