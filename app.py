@@ -27,7 +27,7 @@ def doi_something():
     args = parser.parse_args()
     id = args['id']
     link = args['link']
-    payload = (id, link), 200
+    payload = [id, link], 200
     print("DUNCE CAPPIN")
 
     return payload
@@ -35,7 +35,7 @@ def doi_something():
 # A welcome message to test our server
 @app.route('/')
 def index():
-    return "<h1>Welcome to our server !!</h1>"
+    return render_template('home.html')
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
