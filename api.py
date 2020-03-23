@@ -13,7 +13,7 @@ auth = HTTPBasicAuth()
 
 @app.route("/")
 def home():
-    return "Abunda!"
+    return render_template("home.html")
 
 
 class Video(Resource):
