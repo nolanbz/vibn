@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_restful import Api, Resource, reqparse
 
 import start
+import json
 
 app = Flask(__name__)
 
@@ -27,7 +28,8 @@ def doi_something():
     args = parser.parse_args()
     id = args['id']
     link = args['link']
-    payload = [id, link], 200
+    payload = json.dumps({'id': id, 'link': link}), 200
+
     print("DUNCE CAPPIN")
 
     return payload
