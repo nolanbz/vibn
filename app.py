@@ -3,7 +3,7 @@ from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_restful import Api, Resource, reqparse
 
-import start
+from linkworker import returnLinks
 import json
 
 app = Flask(__name__)
@@ -16,7 +16,15 @@ def post_something():
     args = parser.parse_args()
     id = args['id']
     link = args['link']
-    payload = start.getLinks(id, link), 200
+
+    if id:
+        if link:
+            payload = "we workin", 200
+            returnLinks.delay(id,link)
+        else:
+            payload = "missing link", 400
+    else:
+        payload = "missing id", 400
 
     return payload
 
@@ -28,3 +36,4 @@ def index():
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
     app.run(threaded=True, port=5000)
+    

@@ -4,3 +4,6 @@ flask_httpauth
 flask_restful
 Werkzeug
 gunicorn
+celery
+requests
+redis

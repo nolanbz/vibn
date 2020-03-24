@@ -8,7 +8,7 @@ import setup
 
 def getLinks(id, video_url):
 
-    driver = browser.createBrowser(setup.headless(), setup.local())
+    driver = browser.createBrowser(setup.local())
 
     JSON = json.dumps({'id': id, 'abunda_links': "error"})
 

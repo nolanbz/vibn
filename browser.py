@@ -3,7 +3,7 @@ import os
 import setup
 
 
-def createBrowser(headless, local):
+def createBrowser(local):
 
     bin = os.environ.get("GOOGLE_CHROME_BIN")
     path = os.environ.get("CHROMEDRIVER_PATH")
