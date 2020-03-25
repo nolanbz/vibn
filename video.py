@@ -13,8 +13,12 @@ def get(driver, video_url):
     try:
         WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, video_path)))
 
-        show_more_button = driver.find_element_by_class_name(button_class_name)
-        show_more_button.click()
+        show_more_button = driver.find_elements_by_class_name(button_class_name)
+        if len(show_more_button) > 0:
+            for button in show_more_button:
+                button.click()
+        else:
+            return False
 
         return True
 
