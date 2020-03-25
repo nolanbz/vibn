@@ -1,4 +1,4 @@
-from flask import Flask, render_template Response
+from flask import Flask, render_template
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_restful import Api, Resource, reqparse
@@ -19,12 +19,12 @@ def post_something():
 
     if id:
         if link:
-            payload = Response("we workin", status=200)
+            payload = "we workin"
             returnLinks.delay(id,link)
         else:
-            payload = Response("missing link", status=400)"
+            payload = "missing link"
     else:
-        payload = Response("missing id", status=400)"
+        payload = "missing id"
 
     return payload
 

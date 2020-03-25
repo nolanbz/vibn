@@ -33,13 +33,13 @@ def returnLinks(id, video_url):
         # print("Found {} abunda links(s)".format(len(abunda_links)))
 
         requests.post('https://admin:55092473B@167c00f2.ngrok.io/video_callbacks/receive_data', json=JSON)
-
+        driver.quit()
         return JSON
     else:
         print("failed to load video")
         
         requests.post('https://admin:55092473B@167c00f2.ngrok.io/video_callbacks/receive_data', json=JSON)
-
+        driver.quit()
         return JSON
     
-    driver.quit()
+    
