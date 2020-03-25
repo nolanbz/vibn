@@ -22,11 +22,11 @@ def post_something():
             payload = "we workin"
             returnLinks.delay(id,link)
         else:
-            payload = "missing link"
+            payload = "missing link", 400
     else:
-        payload = "missing id"
+        payload = "missing id", 400
 
-    return payload
+    return {"message":payload}
 
 # A welcome message to test our server
 @app.route('/')
