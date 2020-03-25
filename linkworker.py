@@ -32,13 +32,13 @@ def returnLinks(id, video_url):
         # print("")
         # print("Found {} abunda links(s)".format(len(abunda_links)))
 
-        requests.post('https://admin:55092473B@be72b2aa.ngrok.io/channels/receive_links', json=JSON)
+        requests.post('https://admin:55092473B@167c00f2.ngrok.io/video_callbacks/receive_data', json=JSON)
 
         return JSON
     else:
         print("failed to load video")
         
-        requests.post('https://admin:55092473B@be72b2aa.ngrok.io/channels/receive_links', json=JSON)
+        requests.post('https://admin:55092473B@167c00f2.ngrok.io/video_callbacks/receive_data', json=JSON)
 
         return JSON
     

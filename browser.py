@@ -17,6 +17,11 @@ def createBrowser(local):
     option.add_argument('--headless')
     option.add_argument('--no-sandbox')
     option.add_argument('--disable-dev-shm-usage')
+    option.add_argument("--incognito")
+    option.add_argument("--mute-audio")
+    option.add_argument("--disable-popup-blocking")
+    option.add_argument("--disable-extensions")
+    option.add_argument("--disable-application-cache")
     
     browser = webdriver.Chrome(executable_path=path, options=option)
 
