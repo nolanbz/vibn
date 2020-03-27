@@ -4,6 +4,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_restful import Api, Resource, reqparse
 
 from tasks import do_tasks
+from linkworker import returnLinks
 import json
 
 
@@ -24,7 +25,8 @@ def post_something():
     if id:
         if link:
             payload = "we workin"
-            do_tasks(id, [link])
+            # do_tasks(id, link)
+            returnLinks.delay(id,link)
         else:
             payload = "missing link", 400
     else:
