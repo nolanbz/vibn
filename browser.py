@@ -1,16 +1,10 @@
 from selenium import webdriver 
 import os
-import setup
 
+def createBrowser():
 
-def createBrowser(local):
-
-    bin = os.environ.get("GOOGLE_CHROME_BIN")
-    path = os.environ.get("CHROMEDRIVER_PATH")
-
-    if local:
-        bin = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-        path = "/Users/nolan/Python/vibn/chromedriver"
+    bin = os.environ.get('GOOGLE_CHROME_BIN', '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')
+    path = os.environ.get('CHROMEDRIVER_PATH', '/Users/nolan/Python/vibn/chromedriver')
 
     option = webdriver.ChromeOptions()
     option.binary_location = bin
