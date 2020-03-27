@@ -15,13 +15,12 @@ app = Flask(__name__)
 def post_something():
     parser = reqparse.RequestParser()
     parser.add_argument("id")
-    parser.add_argument("link", action='append')
+    parser.add_argument("link")
     args = parser.parse_args()
     
     id = args['id']
     link = args['link']
-
-
+    
     if id:
         if link:
             payload = "we workin"
