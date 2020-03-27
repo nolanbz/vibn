@@ -20,12 +20,11 @@ def post_something():
     id = args['id']
     link = args['link']
 
-    print(link)
-    
+
     if id:
         if link:
             payload = "we workin"
-            do_tasks(id, link)
+            do_tasks(id, [link])
         else:
             payload = "missing link", 400
     else:
